@@ -34,16 +34,31 @@
          render() {
            return (
              <div>
+                <img src={this.props.image} alt="Bloc Logo"/>
                 <h1>Hello World!</h1>
-                  <h2>Current React Assignment: {this.state.number}</h2>
-                    <button onClick={this.increment.bind(this)}>Increment</button>
-                    <button onClick={this.decrement.bind(this)}>Decrement</button>
+                <h2>Current program: {this.props.label}</h2>
+                <h3>Current Week: {this.state.number}</h3>
+                  <button onClick={this.increment.bind(this)}>Increment</button>
+                  <button onClick={this.decrement.bind(this)}>Decrement</button>
              </div>
            );
          }
        }
+
+       const info = {
+         date: new Date(),
+         image: 'https://avatars0.githubusercontent.com/u/1441485?v=4&s=280',
+       }
+
+       Counter.defaultProps = {
+         label: "Web Developer Track"
+       }
+
+
        ReactDOM.render(
-         <Counter />, document.getElementById('app')
+         <Counter
+           date={info.date}
+           image={info.image}/>,document.getElementById('app')
        );
 </script>
 </body>
